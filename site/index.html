@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiara Oxender | Professional Site</title>
+  <meta
+    name="description"
+    content="Simple resume hub for backend, AI/ML, and security-focused engineering roles."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="layout">
+    <section class="hero">
+      <p class="eyebrow">Professional Site</p>
+      <h1>Chiara Oxender</h1>
+    </section>
+
+    <section class="resume" aria-labelledby="resume-heading">
+      <div class="link-row">
+        <a class="action-link" href="./resumes/software-engineer.pdf">Resume</a>
+        <a class="action-link" href="https://github.com/yourusername">GitHub</a>
+        <a class="action-link" href="https://linkedin.com/in/yourusername">LinkedIn</a>
+      </div>
+    </section>
+
+    <section class="skills" aria-labelledby="skills-heading">
+      <div class="skills-header">
+        <h2 id="skills-heading" class="fun-font">Skills</h2>
+      </div>
+
+      <p class="skills-legend">Dots show familiarity: 3 = strong, 2 = comfortable, 1 = learning.</p>
+
+      <div class="chip-cloud" id="skill-cloud">
+        <button class="chip" type="button"><span class="chip-name">Python</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Typescript</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Javascript</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">HTML</span><span class="dots" aria-label="Comfortable familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Bash</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Java</span><span class="dots" aria-label="Comfortable familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Node.js</span><span class="dots" aria-label="Comfortable familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">SQL Server</span><span class="dots" aria-label="Comfortable familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Kafka</span><span class="dots" aria-label="Comfortable familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Docker</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Kubernetes</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">CDK</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Laravel</span><span class="dots" aria-label="Learning familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">FastAPI</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Django</span><span class="dots" aria-label="Comfortable familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">GitHub Actions</span><span class="dots" aria-label="Comfortable familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Jenkins</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Model Serving</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">LLMs</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">S3</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">RedHat OpenShift</span><span class="dots" aria-label="Strong familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">AWS</span><span class="dots" aria-label="Comfortable familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Linux</span><span class="dots" aria-label="Comfortable familiarity"></span></button>
+        <button class="chip" type="button"><span class="chip-name">Windows</span><span class="dots" aria-label="Strong familiarity"></span></button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="font-credit">
+      Title set in Basteleur by Keussel, with contributions by George Triantafyllakos.
+    </p>
+  </footer>
+
+  <script>
+    const skillCloud = document.getElementById("skill-cloud");
+    const chips = Array.from(document.querySelectorAll(".chip"));
+    const ratingDots = Array.from(document.querySelectorAll(".dots"));
+
+    function getRatingFromLabel(label) {
+      const normalized = label.toLowerCase();
+
+      if (normalized.includes("strong")) {
+        return 3;
+      }
+
+      if (normalized.includes("comfortable")) {
+        return 2;
+      }
+
+      if (normalized.includes("learning")) {
+        return 1;
+      }
+
+      const numericMatch = normalized.match(/\b([123])\b/);
+      if (numericMatch) {
+        return Number(numericMatch[1]);
+      }
+
+      return 1;
+    }
+
+    function renderDots(container, rating) {
+      container.innerHTML = "";
+
+      for (let index = 0; index < 3; index += 1) {
+        const dot = document.createElement("span");
+        dot.className = index < rating ? "dot filled" : "dot";
+        dot.setAttribute("aria-hidden", "true");
+        container.appendChild(dot);
+      }
+    }
+
+    ratingDots.forEach((container) => {
+      const rating = getRatingFromLabel(container.getAttribute("aria-label") || "");
+      container.dataset.rating = String(rating);
+      renderDots(container, rating);
+    });
+
+    chips
+      .sort((leftChip, rightChip) => {
+        const leftDots = leftChip.querySelector(".dots");
+        const rightDots = rightChip.querySelector(".dots");
+        const leftRating = Number(leftDots?.dataset.rating || 0);
+        const rightRating = Number(rightDots?.dataset.rating || 0);
+
+        if (leftRating !== rightRating) {
+          return rightRating - leftRating;
+        }
+
+        return leftChip.textContent.localeCompare(rightChip.textContent);
+      })
+      .forEach((chip) => {
+        skillCloud.appendChild(chip);
+      });
+  </script>
+</body>
+</html>
