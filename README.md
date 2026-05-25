@@ -2,11 +2,7 @@
 
 This repository is a static portfolio site designed for GitHub Pages. It publishes:
 
-- A home page that highlights your profile, skills, and experience
-- Three LaTeX resume variants for:
-  - Backend Engineer
-  - AI/ML Engineer
-  - Security-Focused Developer
+- A home page that highlights profile, skills, and experience
 - An automated GitHub Actions pipeline that compiles the resumes into PDF files and deploys the site
 
 ## Project structure
@@ -20,9 +16,7 @@ This repository is a static portfolio site designed for GitHub Pages. It publish
 Update these files with your real information:
 
 - `site/index.html`
-- `resumes/backend-engineer.tex`
-- `resumes/ai-ml-engineer.tex`
-- `resumes/security-focused-developer.tex`
+- `resumes/software-engineer.tex`
 
 ## Deployment
 

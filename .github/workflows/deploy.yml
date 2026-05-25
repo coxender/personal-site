@@ -28,27 +28,13 @@ jobs:
       - name: Compile backend engineer resume
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: backend-engineer.tex
-          working_directory: resumes
-
-      - name: Compile AI/ML engineer resume
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: ai-ml-engineer.tex
-          working_directory: resumes
-
-      - name: Compile security-focused developer resume
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: security-focused-developer.tex
+          root_file: software-engineer.tex
           working_directory: resumes
 
       - name: Copy generated PDFs into site output
         run: |
           mkdir -p site/resumes
-          cp resumes/backend-engineer.pdf site/resumes/backend-engineer.pdf
-          cp resumes/ai-ml-engineer.pdf site/resumes/ai-ml-engineer.pdf
-          cp resumes/security-focused-developer.pdf site/resumes/security-focused-developer.pdf
+          cp resumes/software-engineer.pdf site/resumes/software-engineer.pdf
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
